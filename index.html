@@ -94,10 +94,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>#C语言的对象</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对象类型Obj_T := &lt;V, V_T&gt; = &lt;值, 值的类型&gt;</span><br></pre></td></tr></table></figure>
+        <h1 id="C语言的对象"><a href="#C语言的对象" class="headerlink" title="C语言的对象"></a>C语言的对象</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对象类型Obj_T := &lt;V, V_T&gt; = &lt;值, 值的类型&gt;</span><br></pre></td></tr></table></figure>
 <p>非数组类型: V_T&#x3D; Obj_T，V则是通过Obj_T去观察这段内存获得的值<br>数组类型 :V_T是该数组类型中元素对象类型对应的指针类型，V是数组第一个元素所处内存的第一个字节编号</p>
-<p><strong>对象七元组模型</strong>:<br>address&#x2F;Object_Type&#x2F;Name&#x2F;Size&#x2F;Value&#x2F;Value_Type&#x2F;Alignment<br>#表达式<br>由一系列操作符和操作对象组成的一个序列<br>优先级依次下降:<br>基础表达式: 标识符&#x2F;常量&#x2F;字符串&#x2F;括号&#x2F;泛型选择<br>后缀表达式: 与: [] . -&gt; ++ – () (typename){initializerlist} 结合<br>一元表达式: 与: ++ – &amp; * + - ~ ! sizeof _Alignof 结合<br>cast表达式: 强制类型转换<br>运算表达式: *&#x2F;%+-<br>移位表达式: &lt;&lt; &gt;&gt;<br>条件表达式: &lt; &gt; &lt;&#x3D; &gt;&#x3D; &#x3D;&#x3D; !&#x3D;<br>位运算表达式: &amp; ^ |<br>逻辑&#x2F;条件运算: &amp;&amp; || A?B:C<br>赋值表达式: &#x3D; *&#x3D; &#x2F;&#x3D; %&#x3D; +&#x3D; -&#x3D; &lt;&lt;&#x3D;  &gt;&gt;&#x3D; &amp;&#x3D; ^&#x3D; |&#x3D;<br>逗号运算: exp1, exp2, *** , expn<br>#左值<br>可定位一个对象的表达式</p>
+<p><strong>对象七元组模型</strong>:<br>address&#x2F;Object_Type&#x2F;Name&#x2F;Size&#x2F;Value&#x2F;Value_Type&#x2F;Alignment</p>
+<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><p>由一系列操作符和操作对象组成的一个序列<br>优先级依次下降:<br>基础表达式: 标识符&#x2F;常量&#x2F;字符串&#x2F;括号&#x2F;泛型选择<br>后缀表达式: 与: [] . -&gt; ++ – () (typename){initializerlist} 结合<br>一元表达式: 与: ++ – &amp; * + - ~ ! sizeof _Alignof 结合<br>cast表达式: 强制类型转换<br>运算表达式: *&#x2F;%+-<br>移位表达式: &lt;&lt; &gt;&gt;<br>条件表达式: &lt; &gt; &lt;&#x3D; &gt;&#x3D; &#x3D;&#x3D; !&#x3D;<br>位运算表达式: &amp; ^ |<br>逻辑&#x2F;条件运算: &amp;&amp; || A?B:C<br>赋值表达式: &#x3D; *&#x3D; &#x2F;&#x3D; %&#x3D; +&#x3D; -&#x3D; &lt;&lt;&#x3D;  &gt;&gt;&#x3D; &amp;&#x3D; ^&#x3D; |&#x3D;<br>逗号运算: exp1, exp2, *** , expn</p>
+<h1 id="左值"><a href="#左值" class="headerlink" title="左值"></a>左值</h1><p>可定位一个对象的表达式</p>
 <ol>
 <li>对象标识符</li>
 <li>字符串</li>
@@ -106,7 +107,7 @@
 <li>(typename){initializer}</li>
 <li>exp.identifier exp-&gt;identifier</li>
 </ol>
-<p>#Evaluation<br>求值 + 副作用<br>value computation: 得到右值(表达式的值)及其类型<br>side effect: 状态的改变</p>
+<h1 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h1><p>求值 + 副作用<br>value computation: 得到右值(表达式的值)及其类型<br>side effect: 状态的改变</p>
 <p>定位非数组对象的lvalue的Evaluate规则:<br>除了<br>与sizeof&#x2F;typeof&#x2F;&amp;&#x2F;++&#x2F;–结合<br>lvalue定位的对象类型是结构体&#x2F;联合体<br>出现在赋值运算符的左侧<br>以外:<br>这个表达式都要做evaluate</p>
 <p>定位数组对象的lvalue的Evaluate规则:<br>除了<br>与sizeof&#x2F;typeof&#x2F;&amp;结合<br>lvalue定位的是一个string literal，且用于初始化一个字符数组<br>以外:<br>这个表达式都要做evaluate</p>
 
